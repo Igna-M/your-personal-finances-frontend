@@ -8,7 +8,8 @@ export default class MainElements extends React.Component {
         super(props);
         this.state = {
             isLoaded: false,
-            operationsList: []
+            operationsList: [],
+            balance: 0
         }
     }
 
@@ -31,7 +32,16 @@ export default class MainElements extends React.Component {
         this.setState(
             {
                 isLoaded: true,
-                operationsList: data.data
+                operationsList: data.data,
+                balance: data.data.map(function(currentOperation){
+                    let value
+                    if (currentOperation.kind === 'ingreso'){
+                        value = Number(currentOperation.amount)
+                    } else if (currentOperation.kind === 'egreso'){
+                        value = Number(currentOperation.amount) * -1
+                    }
+                    return value;
+                }) 
             }
         )
     }
@@ -39,13 +49,16 @@ export default class MainElements extends React.Component {
 
     render() {
 
-        var {isLoaded, operationsList} = this.state;
+        var {isLoaded, operationsList, balance } = this.state;
 
         if (!isLoaded){
             return <div>loading...</div>
         } else {
             return (
                 <div>
+                    <div>
+                        <p className='balance'>Balance: $ { balance.reduce((accumulator, currentValue) => accumulator + currentValue).toFixed(2) }</p>
+                    </div>
                     {operationsList.map((operation, i) => 
                         <div key={i} className="operation-element">
                             <OperationElement concept={operation.concept} id={operation.id} amount={operation.amount} date={operation.date} kind={operation.kind}/>
