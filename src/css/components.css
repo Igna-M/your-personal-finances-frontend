@@ -1,0 +1,78 @@
+.operation-element{
+    border: 2px solid #dedede;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 5px;
+    padding: 2px;
+    margin: 15px auto 15px auto;
+    max-width: 90%;
+    color: black;
+}
+
+.operation-element:hover{
+    background-image: linear-gradient(135deg, #c0d8f8 0%, #a3bce6 100%);
+    box-shadow: 2px 5px 10px 1px rgba(255, 255, 255, 0.2);
+}
+
+
+.operation-card p{
+    margin-top: 1px; 
+    margin-bottom: 1px; 
+}
+
+
+
+.one-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 99%;
+    margin: auto;
+    /* background: white; */
+}
+
+.first-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin: auto;
+}
+
+.operation-title {
+    font-weight: bold;
+    text-align: left;
+    margin-left: 8px;
+    width: 55%;
+    padding: 2px;
+}
+
+
+.operation-amount{
+    margin-right: 8px;
+    text-align:right;
+    width: 45%;
+    /* background-color: springgreen; */
+    padding: 2px;
+}
+
+.second-line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 40%;
+    margin: auto;
+    /* background: steelblue; */
+}
+
+.operation-date{
+    width: 50%;
+    margin-left: 25px;
+    text-align: left;
+}
+
+.operation-kind{
+    width: 50%;
+    margin-right: 15px;
+    text-align: right;
+}
+
